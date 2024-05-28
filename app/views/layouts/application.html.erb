@@ -12,6 +12,20 @@
 
   <body>
     <%= render "layouts/messages" %>
+    <div>
+      <% if logged_in? %>
+        <div>
+          <%= "(Admin)" if current_user.admin? %>
+          <%= link_to current_user.username, user_path(current_user) %>
+          <%= button_to 'Log out', logout_path, method: :delete %>
+          <%= button_to "Delete profile", user_path(current_user), method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+      <% else %>
+        <%= link_to 'Log in', login_path %>
+        <%= link_to 'Sign up', login_path %>
+      <% end %>
+    </div>
+    
     <%= yield %>
   </body>
 </html>

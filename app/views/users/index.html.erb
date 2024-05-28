@@ -1,0 +1,21 @@
+<h1>Alpha Bloggers</h1>
+
+<div class="flickr_pagination">
+    <%= will_paginate @user, :container => false %>
+</div>
+
+<% @users.each do |user| %>
+    <div class="user">
+        <h2><%= link_to user.username, user %></h2>
+        <p><%= user.email %></p>
+        <p><%= user.articles.count %> articles</p>
+        <%= link_to "View profile", user %>
+        <% if logged_in? && current_user.id == user.id %>
+            <%= link_to "Edit profile", edit_user_path(user) %>
+        <% end %>
+    </div>
+<% end %>
+
+<div class="flickr_pagination">
+    <%= will_paginate @user, :container => false %>
+</div>

@@ -7,7 +7,8 @@
 
 <div>
   <%= link_to "Back to articles", articles_path %>
-  <%= link_to "Edit", edit_article_path(@article) %>
-
-  <%= button_to "Destroy this article", @article, method: :delete %>
+  <% if logged_in? && current_user.id == @article.user_id %>
+    <%= link_to "Edit", edit_article_path(@article) %>
+    <%= button_to "Destroy this article", @article, method: :delete %>
+  <% end %>
 </div>

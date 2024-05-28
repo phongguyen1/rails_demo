@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 ruby "3.2.3"
-
+gem "will_paginate", "~> 4.0.0"
 gem "webpacker", "~> 5.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
